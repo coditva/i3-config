@@ -136,3 +136,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+
+# In fullscreen mode, display the popup if it belongs to the fullscreen application only
+popup_during_fullscreen smart
