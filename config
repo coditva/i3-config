@@ -22,7 +22,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu-desktop (a program launcher)
-bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
+bindsym Ctrl+space exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
