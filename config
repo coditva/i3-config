@@ -161,3 +161,19 @@ exec --no-startup-id compton -b -c -f -D 1
 # make touchpad usable
 exec --no-startup-id xinput set-prop 12 276 1
 exec --no-startup-id xinput set-prop 12 286 1
+# turn of cpu warning bell
+exec --no-startup-id xset -b
+
+
+# make multimedia keys useful
+# sound controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+# screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# playback controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
