@@ -113,8 +113,8 @@ bar {
         # load the status bar config
         status_command i3status --config $config_dir/i3status.conf
 
-        # keep the i3bar hidden unless $mod is pressed
-        mode hide
+        # keep the i3bar in dock state
+        mode dock
         hidden_state hide
         modifier $mod
 
