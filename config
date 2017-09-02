@@ -5,6 +5,10 @@ set $mod Mod1
 # set the config directory
 set $config_dir ~/.config/i3
 
+# set various programs
+# locker
+set $locker = sxlock -u "Utkarsh Maheshwari"
+
 # set the font used by the windows
 font pango:DejaVu Sans Mono 10
 
@@ -18,7 +22,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu-desktop (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -87,6 +91,8 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+#bindsym $mod4+l exec --no-startup-id
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -164,15 +170,14 @@ exec --no-startup-id xinput set-prop 12 286 1
 # turn of cpu warning bell
 exec --no-startup-id xset -b
 
-
 # make multimedia keys useful
 # sound controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 # screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 3
+bindsym XF86MonBrightnessDown exec xbacklight -dec 3
 # playback controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
