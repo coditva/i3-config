@@ -1,13 +1,14 @@
 
 # set the mod key
 set $mod Mod1
+set $mod4 Mod4
 
 # set the config directory
 set $config_dir ~/.config/i3
 
-# set various programs
+# set various variable programs
 # locker
-set $locker = sxlock -u "Utkarsh Maheshwari"
+set $locker sxlock # -u "Utkarsh Maheshwari"
 
 # set the font used by the windows
 font pango:DejaVu Sans Mono 10
@@ -157,9 +158,11 @@ bar {
 # application only
 popup_during_fullscreen smart
 
-
 # you don’t need to remember where you came from
 workspace_auto_back_and_forth yes
+
+# lock screen with $mod4+l
+bindsym $mod4+l exec --no-startup-id $locker
 
 # specify autostart apps
 # compton to prevent window tearing
