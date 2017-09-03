@@ -125,49 +125,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-# toggle hiding and showing bar
-bindsym $mod+m bar mode toggle
-
-# start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-
-        # load the status bar config
-        status_command i3status --config $config_dir/i3status.conf
-
-        # define dock behavior in hidden state
-        hidden_state hide
-        modifier $mod4
-
-        # place the bar on the top
-        position top
-
-        # choose colors for the bar
-        colors {
-                background #000000
-                statusline #ffffff
-        }
-
-        # add a system tray to the primary monitor
-        tray_output primary
-
-        # use a different font for the bar
-        font pango:DejaVu Sans Mono 10
-
-        # use a custom separator symbol
-        separator_symbol " | "
-
-        # choose if you want workspace buttons
-        workspace_buttons yes
-
-        # show the workspace number regardless the name
-        strip_workspace_numbers no
-
-        # show the binding mode indicator
-        binding_mode_indicator yes
-}
-
-
 # in fullscreen mode, display the popup if it belongs to the fullscreen
 # application only
 popup_during_fullscreen smart
@@ -217,3 +174,46 @@ for_window [class="Spotify"] border pixel 0
 
 # configure mouse behaviour
 focus_follows_mouse no
+
+
+# toggle hiding and showing bar
+bindsym $mod+m bar mode toggle
+
+# start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+
+        # load the status bar config
+        status_command i3status --config $config_dir/i3status.conf
+
+        # define dock behavior in hidden state
+        hidden_state hide
+        modifier $mod4
+
+        # place the bar on the top
+        position top
+
+        # choose colors for the bar
+        colors {
+                background #000000
+                statusline #ffffff
+        }
+
+        # add a system tray to the primary monitor
+        tray_output primary
+
+        # use a different font for the bar
+        font pango:Awesome, DejaVu Sans Mono 10
+
+        # use a custom separator symbol
+        separator_symbol " | "
+
+        # choose if you want workspace buttons
+        workspace_buttons yes
+
+        # show the workspace number regardless the name
+        strip_workspace_numbers no
+
+        # show the binding mode indicator
+        binding_mode_indicator yes
+}
