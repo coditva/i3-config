@@ -11,6 +11,7 @@ set $config_dir ~/.config/i3
 set $locker sxlock -u "Utkarsh Maheshwari"
 set $lock_time 10   #in minutes
 
+
 # set the font used by the windows
 font pango:DejaVu Sans Mono 10
 
@@ -26,17 +27,20 @@ bindsym $mod+Shift+q kill
 # start dmenu-desktop (a program launcher)
 bindsym Ctrl+space exec --no-startup-id i3-dmenu-desktop
 
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
+
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
+
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -47,10 +51,12 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -60,6 +66,7 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -73,6 +80,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -85,14 +93,18 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -113,6 +125,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+# toggle hiding and showing bar
 bindsym $mod+m bar mode toggle
 
 # start i3bar to display a workspace bar (plus the system information i3status
@@ -159,13 +172,16 @@ bar {
 # application only
 popup_during_fullscreen smart
 
+
 # you don’t need to remember where you came from
 workspace_auto_back_and_forth yes
+
 
 # lock screen with $mod4+l
 bindsym $mod4+l exec --no-startup-id $locker
 # lock screen after some time of inactivity
 exec --no-startup-id xautolock -time $lock_time -locker $locker
+
 
 # specify autostart apps
 # compton to prevent window tearing
@@ -175,6 +191,7 @@ exec --no-startup-id xinput set-prop 12 276 1
 exec --no-startup-id xinput set-prop 12 286 1
 # turn of cpu warning bell
 exec --no-startup-id xset -b
+
 
 # make multimedia keys useful
 # sound controls
