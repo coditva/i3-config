@@ -112,6 +112,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+bindsym $mod+m bar mode toggle
+
 # start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -119,10 +122,9 @@ bar {
         # load the status bar config
         status_command i3status --config $config_dir/i3status.conf
 
-        # keep the i3bar in dock state
-        mode dock
+        # define dock behavior in hidden state
         hidden_state hide
-        modifier $mod
+        modifier $mod4
 
         # place the bar on the top
         position top
