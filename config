@@ -213,3 +213,7 @@ new_window pixel 1
 
 # application specific styles for windows
 for_window [class="Spotify"] border pixel 0
+
+
+# configure mouse behaviour
+focus_follows_mouse no
