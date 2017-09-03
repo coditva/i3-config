@@ -8,7 +8,7 @@ set $config_dir ~/.config/i3
 
 # set various variable programs
 # locker
-set $locker sxlock -u "Utkarsh Maheshwari"
+set $locker "/usr/bin/sxlock -u 'Utkarsh Maheshwari'"
 set $lock_time 10   #in minutes
 
 
@@ -142,7 +142,7 @@ exec --no-startup-id xautolock -time $lock_time -locker $locker
 
 # specify autostart apps
 # compton to prevent window tearing
-exec --no-startup-id compton -b -c -f -D 1
+exec --no-startup-id compton -b -c -f -D 2
 # make touchpad usable
 exec --no-startup-id xinput set-prop 12 276 1
 exec --no-startup-id xinput set-prop 12 286 1
