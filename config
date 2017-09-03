@@ -205,3 +205,11 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 3
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+
+# define styles for windows
+# new window defaults
+new_window pixel 1
+
+# application specific styles for windows
+for_window [class="Spotify"] border pixel 0
