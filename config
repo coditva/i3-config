@@ -168,6 +168,11 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 # new window defaults
 new_window pixel 1
 
+client.focused          #4c7899 #000000 #ffffff #000000
+client.focused_inactive #333333 #000000 #ffffff #000000
+client.unfocused        #333333 #000000 #888888 #000000
+client.urgent           #2f343a #000000 #ffffff #000000
+
 # application specific styles for windows
 for_window [class="Spotify"] border pixel 0
 
