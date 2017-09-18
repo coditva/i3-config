@@ -68,16 +68,16 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # name the workspaces
-set $w1 
-set $w2 
-set $w3 
-set $w4 
-set $w5 
-set $w6 
-set $w7 
-set $w8 
-set $w9 
-set $w10 
+set $w1 1:
+set $w2 2:
+set $w3 3:
+set $w4 4:
+set $w5 5:
+set $w6 6:
+set $w7 7:
+set $w8 8:
+set $w9 9:
+set $w10 10:
 
 # switch to workspace
 bindsym $mod+1 workspace $w1
@@ -102,6 +102,7 @@ bindsym $mod+Shift+7 move container to workspace $w7
 bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w10
+
 
 
 # reload the configuration file
@@ -222,9 +223,9 @@ bar {
         # choose if you want workspace buttons
         workspace_buttons yes
 
-        # show the workspace number regardless the name
-        strip_workspace_numbers no
-
         # show the binding mode indicator
         binding_mode_indicator yes
+
+        # dont show the numbers of the workspaces
+        strip_workspace_numbers yes
 }
