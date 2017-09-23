@@ -38,7 +38,7 @@ feh --bg-scale ~/.wallpaper.jpg &
 xset -b
 
 # enable window compositing
-compton -b -c -f -D 2 &
+compton --shadow --fading --fade-delta=1 --blur-background --paint-on-overlay --alpha-step=0.1 --inactive-opacity-override --daemon
 
 # enable touchpad basics
 xinput set-prop "AlpsPS/2 ALPS GlidePoint" "libinput Tapping Enabled" 1 &
