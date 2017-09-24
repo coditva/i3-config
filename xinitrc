@@ -32,17 +32,36 @@ fi
 
 
 # set the background
-feh --bg-scale ~/.wallpaper.jpg &
+if [ -f /usr/bin/feh ]; then
+    feh --bg-scale ~/.wallpaper.jpg &
+fi
 
 # turn off the cpu default bell
-xset -b
+if [ -f /usr/bin/xset ]; then
+    xset -b
+fi
 
 # enable window compositing
-compton --shadow --fading --fade-delta=1 --blur-background --paint-on-overlay --alpha-step=0.1 --inactive-opacity-override --daemon
+if [ -f /usr/bin/compton ]; then
+    compton --shadow --fading --fade-delta=1 --blur-background \
+        --paint-on-overlay --alpha-step=0.1 --inactive-opacity-override \
+        --daemon
+fi
 
 # enable touchpad basics
-xinput set-prop "AlpsPS/2 ALPS GlidePoint" "libinput Tapping Enabled" 1 &
-xinput set-prop "AlpsPS/2 ALPS GlidePoint" "libinput Natural Scrolling Enabled" 1 &
+if [ -f /usr/bin/xinput ]; then
+    xinput set-prop "AlpsPS/2 ALPS GlidePoint" \
+        "libinput Tapping Enabled" 1 &
+    xinput set-prop "AlpsPS/2 ALPS GlidePoint" \
+        "libinput Natural Scrolling Enabled" 1 &
+fi
+
+# start redshift
+if [ -f /usr/bin/redshift ]; then
+    redshift &
+fi
 
 # start i3 and keep it running
-exec i3
+if [ -f /usr/bin/i3 ]; then
+    exec i3
+fi
