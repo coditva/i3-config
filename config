@@ -6,27 +6,17 @@ set $mod4 Mod4
 # set the config directory
 set $config_dir ~/.config/i3
 
-# set various variable programs
-# locker
-set $locker "/usr/bin/sxlock -u 'Utkarsh Maheshwari'"
-set $lock_time 10   #in minutes
-
-
-# set the font used by the windows
-font pango:San Francisco Display Medium 11
-
-# use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# start dmenu-desktop (a program launcher)
+# start dmenu-desktop
 bindsym Ctrl+space exec --no-startup-id i3-dmenu-desktop
 
+
+
+################################################################################
+# Configure navigation control
+################################################################################
 
 # change focus
 bindsym $mod+h focus left
@@ -34,13 +24,11 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -51,12 +39,10 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -66,6 +52,22 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# in fullscreen mode, display the popup if it belongs to the fullscreen
+# application only
+popup_during_fullscreen smart
+
+# set the font used by the windows
+font pango:San Francisco Display Medium 11
+
+
+
+################################################################################
+# Configure workspaces
+################################################################################
 
 # name the workspaces
 set $w1 1:
@@ -105,41 +107,40 @@ bindsym $mod+Shift+0 move container to workspace $w10
 
 
 
+################################################################################
+# Configure i3 specific key bindings
+################################################################################
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
-
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Ctrl+Delete exec "i3-msg exit"
 
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # pressing left will shrink the window’s width.
-        # pressing right will grow the window’s width.
-        # pressing up will shrink the window’s height.
-        # pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+################################################################################
+# Configure mouse behaviour
+################################################################################
 
-bindsym $mod+r mode "resize"
+# mouse plays no role in focus
+focus_follows_mouse no
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
 
-# in fullscreen mode, display the popup if it belongs to the fullscreen
-# application only
-popup_during_fullscreen smart
 
+################################################################################
+# Configure screen locking
+################################################################################
+
+# locker
+set $locker "/usr/bin/sxlock -u 'Utkarsh Maheshwari'"
+set $lock_time 10   #in minutes
 
 # lock screen with $mod4+l
 bindsym $mod4+l exec --no-startup-id $locker
@@ -147,7 +148,11 @@ bindsym $mod4+l exec --no-startup-id $locker
 exec --no-startup-id xautolock -time $lock_time -locker $locker
 
 
-# make multimedia keys useful
+
+################################################################################
+# Make multimedia keys useful
+################################################################################
+
 # sound controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
@@ -161,7 +166,11 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 
-# define styles for windows
+
+################################################################################
+# Define styles for windows
+################################################################################
+
 # new window defaults
 new_window pixel 1
 
@@ -174,9 +183,10 @@ client.urgent           #2f343a #000000 #ffffff #000000
 for_window [class="Spotify"] border pixel 0
 
 
-# configure mouse behaviour
-focus_follows_mouse no
 
+################################################################################
+# Configure the status bar
+################################################################################
 
 # toggle hiding and showing bar
 bindsym $mod+m bar mode toggle
@@ -221,9 +231,31 @@ bar {
 }
 
 
+
+################################################################################
 # Configure modes
-# Stop navigation keys
-bindsym $mod+Shift+Delete mode "No mappings"
+################################################################################
+
+# stop navigation keys
 mode "No mappings" {
     bindsym Escape mode "default"
 }
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # pressing left will shrink the window’s width.
+        # pressing right will grow the window’s width.
+        # pressing up will shrink the window’s height.
+        # pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+Delete mode "No mappings"
+bindsym $mod+r mode "resize"
