@@ -219,3 +219,11 @@ bar {
         # dont show the numbers of the workspaces
         strip_workspace_numbers yes
 }
+
+
+# Configure modes
+# Stop navigation keys
+bindsym $mod+Shift+Delete mode "No mappings"
+mode "No mappings" {
+    bindsym Escape mode "default"
+}
