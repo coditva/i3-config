@@ -24,10 +24,11 @@ fi
 
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
+    for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+        # shellcheck source=/dev/null
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
 fi
 
 
@@ -43,9 +44,8 @@ fi
 
 # enable window compositing
 if [ -f /usr/bin/compton ]; then
-    compton --shadow --fading --fade-delta=1 --blur-background \
-        --paint-on-overlay --alpha-step=0.1 --inactive-opacity-override \
-        --daemon
+    compton --shadow --fading --blur-background --paint-on-overlay \
+        --inactive-opacity-override --daemon
 fi
 
 # enable touchpad basics
