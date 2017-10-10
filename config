@@ -243,11 +243,12 @@ mode "No mappings" {
 
 # resize window (you can also use the mouse for that)
 mode "Resize" {
+        set $resize_step 2
 
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width $resize_step px or $resize_step ppt
+        bindsym j resize grow height $resize_step px or $resize_step ppt
+        bindsym k resize shrink height $resize_step px or $resize_step ppt
+        bindsym l resize grow width $resize_step px or $resize_step ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -256,3 +257,20 @@ mode "Resize" {
 
 bindsym $mod+Shift+Delete mode "No mappings"
 bindsym $mod+r mode "Resize"
+
+
+
+################################################################################
+# i3-gaps specific configuration
+################################################################################
+
+# disable the titlebars
+for_window [class="^.*"] border pixel 0
+
+# set the gaps
+gaps inner 5
+gaps outer 0
+
+# make it smart
+smart_gaps on
+smart_borders on
