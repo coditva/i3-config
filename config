@@ -6,6 +6,11 @@ set $mod4 Mod4
 # set the config directory
 set $config_dir ~/.config/i3
 
+# set the status bar
+# select from the following (only one please!)
+set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
+#set $status_cmd "i3blocks -c ~/.config/i3/i3blocks.conf"
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -196,7 +201,8 @@ bindsym $mod+m bar mode toggle
 bar {
 
         # load the status bar config
-        status_command i3status --config $config_dir/i3status.conf
+        status_command $status_cmd
+        #status_command i3status --config $config_dir/i3status.conf
 
         # define dock behavior in hidden state
         hidden_state hide
