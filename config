@@ -217,7 +217,7 @@ bar {
         # choose colors for the bar
         # RGBA in i3-gaps
         colors {
-                background #000000dd
+                background #000000ec
                 statusline #ffffffff
         }
 
