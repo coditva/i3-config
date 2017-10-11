@@ -202,7 +202,10 @@ bar {
 
         # load the status bar config
         status_command $status_cmd
-        #status_command i3status --config $config_dir/i3status.conf
+
+        # make the status bar support transparency
+        # (only in i3-gaps)
+        i3bar_command i3bar -t
 
         # define dock behavior in hidden state
         hidden_state hide
@@ -212,9 +215,10 @@ bar {
         position top
 
         # choose colors for the bar
+        # RGBA in i3-gaps
         colors {
-                background #000000
-                statusline #ffffff
+                background #000000dd
+                statusline #ffffffff
         }
 
         # add a system tray to the primary monitor
