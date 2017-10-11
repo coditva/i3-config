@@ -280,3 +280,15 @@ gaps outer 0
 # make it smart
 smart_gaps on
 smart_borders on
+
+
+
+################################################################################
+# Scratchpad
+################################################################################
+
+# make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# show the first scratchpad window
+bindsym $mod+minus scratchpad show
