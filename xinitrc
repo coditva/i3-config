@@ -44,8 +44,7 @@ fi
 
 # enable window compositing
 if [ -f /usr/bin/compton ]; then
-    compton --shadow --fading --blur-background --paint-on-overlay \
-        --inactive-opacity-override --daemon
+    compton --config "$HOME/.config/i3/compton.conf" --daemon
 fi
 
 # enable touchpad basics
