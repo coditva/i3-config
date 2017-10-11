@@ -268,7 +268,7 @@ bindsym $mod+r mode "Resize"
 for_window [class="^.*"] border pixel 0
 
 # set the gaps
-gaps inner 5
+gaps inner 6
 gaps outer 0
 
 # make it smart
