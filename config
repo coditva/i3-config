@@ -15,7 +15,8 @@ set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start dmenu-desktop
-bindsym Ctrl+space exec --no-startup-id i3-dmenu-desktop
+bindsym Ctrl+space exec --no-startup-id i3-dmenu-desktop\
+    --dmenu="dmenu -i -nb #000000 -p App: -f"
 
 
 
