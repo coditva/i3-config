@@ -11,12 +11,23 @@ set $config_dir ~/.config/i3
 set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
 #set $status_cmd "i3blocks -c ~/.config/i3/i3blocks.conf"
 
+# set color scheme for theme
+set $c_first    #000000
+set $c_first_a  #000000ec
+set $c_second   #ffffff
+set $c_second_a #ffffffff
+set $c_third    #333333
+set $c_fourth   #2f343a
+set $c_fifth    #4c7899
+set $c_sizth    #888888
+
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start dmenu-desktop
 bindsym Ctrl+space exec --no-startup-id i3-dmenu-desktop\
-    --dmenu="dmenu -i -nb #000000 -p App: -f"
+    --dmenu="dmenu -i -nb '"$c_first"' -p 'App:' -f -fn 'SanFranciscoText Bold-10'"
 
 
 
@@ -180,10 +191,12 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 # new window defaults
 new_window pixel 1
 
-client.focused          #4c7899 #000000 #ffffff #000000
-client.focused_inactive #333333 #000000 #ffffff #000000
-client.unfocused        #333333 #000000 #888888 #000000
-client.urgent           #2f343a #000000 #ffffff #000000
+# class                 border    backgr.   text      indicatr  child_border
+client.focused          $c_fifth  $c_first  $c_second $c_second $c_second
+client.focused_inactive $c_third  $c_first  $c_second $c_first  $c_second
+client.unfocused        $c_third  $c_first  $c_sixth  $c_first  $c_second
+client.urgent           $c_fourth $c_first  $c_second $c_first  $c_second
+client.placeholder      $c_fourth $c_first  $c_second $c_first  $c_second
 
 # application specific styles for windows
 for_window [class="Spotify"] border pixel 0
@@ -218,8 +231,8 @@ bar {
         # choose colors for the bar
         # RGBA in i3-gaps
         colors {
-                background #000000ec
-                statusline #ffffffff
+                background $c_first_a
+                statusline $c_second_a
         }
 
         # add a system tray to the primary monitor
