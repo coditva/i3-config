@@ -8,8 +8,8 @@ set $config_dir ~/.config/i3
 
 # set the status bar
 # select from the following (only one please!)
-set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
-#set $status_cmd "i3blocks -c ~/.config/i3/i3blocks.conf"
+#set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
+set $status_cmd "i3blocks -c ~/.config/i3/i3blocks.conf"
 
 # set color scheme for theme
 set $c_first    #000000
