@@ -1,7 +1,7 @@
 # i3 Configuration
 
 ### Screenshot
-![Screenshot](https://gist.githubusercontent.com/UtkarshMe/fa799476f8506e14e0b4df12e51abd8c/raw/7d85c1370c55f8f82dab66d7e94bd443e81f09b2/screenshot.jpg "Screenshot")
+![Screenshot](https://gist.githubusercontent.com/UtkarshMe/fa799476f8506e14e0b4df12e51abd8c/raw/494fa582989377256aef6632f26af83921844e08/screenshot.jpg "Screenshot")
 
 ### Installation
 ```bash
