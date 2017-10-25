@@ -1,7 +1,7 @@
 
 # set the mod key
-set $mod Mod1
-set $mod4 Mod4
+set $mod Mod4
+set $mod4 Ctrl+Mod1
 
 # set the config directory
 set $config_dir ~/.config/i3
@@ -226,7 +226,7 @@ bar {
 
         # define dock behavior in hidden state
         hidden_state hide
-        modifier $mod4
+        modifier $mod
 
         # place the bar on the top
         position top
