@@ -12,10 +12,10 @@ set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
 #set $status_cmd "i3blocks -c ~/.config/i3/i3blocks.conf"
 
 # set color scheme for theme
-set $c_first    #000000
-set $c_first_a  #000000ec
-set $c_second   #ffffff
-set $c_second_a #ffffffff
+set $c_first    #ffffff
+set $c_first_a  #ffffffdd
+set $c_second   #000000
+set $c_second_a #000000ff
 set $c_third    #333333
 set $c_fourth   #2f343a
 set $c_fifth    #4c7899
