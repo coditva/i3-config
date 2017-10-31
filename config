@@ -27,7 +27,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # start dmenu-desktop
 bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
-    --dmenu="dmenu -i -nb '"$c_first"' -p 'App:' -f\
+    --dmenu="dmenu -i -p 'App:' -f\
+        -nb '"$c_first"'\
+        -nf '"$c_second"'\
+        -sb '"$c_third"'\
         -fn 'SanFranciscoText Bold-10'"\
     --term="i3-sensible-terminal"\
     --usage-log=$HOME"/.dmenu_usage.log"
