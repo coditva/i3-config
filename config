@@ -7,9 +7,7 @@ set $mod4 Ctrl+Mod1
 set $config_dir ~/.config/i3
 
 # set the status bar
-# select from the following (only one please!)
 set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
-#set $status_cmd "i3blocks -c ~/.config/i3/i3blocks.conf"
 
 # set color scheme for theme
 set $c_first    #ffffff
@@ -254,7 +252,7 @@ bar {
         font pango:San Francisco Display Medium 11
 
         # use a custom separator symbol
-        separator_symbol " | "
+        separator_symbol ":|:"
 
         # choose if you want workspace buttons
         workspace_buttons yes
