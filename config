@@ -126,6 +126,10 @@ bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w10
 
+# switch to next and prev workspaces
+bindsym $mod+Tab        workspace next
+bindsym $mod+Shift+Tab  workspace prev
+
 
 
 ################################################################################
