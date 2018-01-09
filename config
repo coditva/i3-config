@@ -29,7 +29,6 @@ bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
         -nb '"$c_first"'\
         -nf '"$c_second"'\
         -sb '"$c_third"'\
-        -fn 'SanFranciscoText Bold-10'"\
     --term="i3-sensible-terminal"\
     --usage-log=$HOME"/.dmenu_usage.log"
 
@@ -81,9 +80,6 @@ bindsym $mod+Shift+q kill
 # application only
 popup_during_fullscreen smart
 
-# set the font used by the windows
-font pango:San Francisco Display Medium 11
-
 
 
 ################################################################################
@@ -91,16 +87,16 @@ font pango:San Francisco Display Medium 11
 ################################################################################
 
 # name the workspaces
-set $w1 1:
-set $w2 2:
-set $w3 3:
-set $w4 4:
-set $w5 5:
-set $w6 6:
-set $w7 7:
-set $w8 8:
-set $w9 9:
-set $w10 10:
+set $w1 1
+set $w2 2
+set $w3 3
+set $w4 4
+set $w5 5
+set $w6 6
+set $w7 7
+set $w8 8
+set $w9 9
+set $w10 10
 
 # switch to workspace
 bindsym $mod+1 workspace $w1
@@ -251,9 +247,6 @@ bar {
 
         # add a system tray to the primary monitor
         tray_output primary
-
-        # use a different font for the bar
-        font pango:San Francisco Display Medium 11
 
         # use a custom separator symbol
         separator_symbol ":|:"
