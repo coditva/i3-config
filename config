@@ -33,6 +33,9 @@ bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
     --term="i3-sensible-terminal"\
     --usage-log=$HOME"/.dmenu_usage.log"
 
+# start tilda
+exec_always --no-startup-id tilda
+
 
 
 ################################################################################
@@ -165,12 +168,9 @@ floating_modifier $mod
 
 # locker
 set $locker "/usr/bin/sxlock -u 'Utkarsh Maheshwari'"
-set $lock_time 10   #in minutes
 
 # lock screen with $mod4+l
 bindsym $mod4+l exec --no-startup-id $locker
-# lock screen after some time of inactivity
-exec --no-startup-id xautolock -time $lock_time -locker $locker
 
 
 
