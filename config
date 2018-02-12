@@ -25,17 +25,19 @@ set $c_border   #000000
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start dmenu-desktop
-bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
-    --dmenu="dmenu -i -p 'App:' -f\
-        -nb '"$c_first"'\
-        -nf '"$c_second"'\
-        -sb '"$c_third"'\
-        -fn 'SanFranciscoText Bold-10'"\
-    --term="i3-sensible-terminal"\
-    --usage-log=$HOME"/.dmenu_usage.log"
+#bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
+    #--dmenu="dmenu -i -p 'App:' -f\
+        #-nb '"$c_first"'\
+        #-nf '"$c_second"'\
+        #-sb '"$c_third"'\
+        #-fn 'SanFranciscoText Bold-10'"\
+    #--term="i3-sensible-terminal"\
+    #--usage-log=$HOME"/.dmenu_usage.log"
+bindsym Ctrl+space exec --no-startup-id synapse
 
 # start tilda
 exec_always --no-startup-id tilda
+exec_always --no-startup-id synapse -s hide
 
 
 
@@ -202,10 +204,10 @@ new_window pixel 1
 
 # class                 border    backgr.   text      indicatr  child_border
 client.focused          $c_fifth  $c_first  $c_second $c_border $c_border
-client.focused_inactive $c_third  $c_first  $c_second $c_first  $c_border
-client.unfocused        $c_third  $c_first  $c_sixth  $c_first  $c_border
-client.urgent           $c_fourth $c_first  $c_second $c_first  $c_border
-client.placeholder      $c_fourth $c_first  $c_second $c_first  $c_border
+client.focused_inactive $c_third  $c_first  $c_second $c_border $c_border
+client.unfocused        $c_third  $c_first  $c_sixth  $c_border $c_border
+client.urgent           $c_fourth $c_first  $c_second $c_border $c_border
+client.placeholder      $c_fourth $c_first  $c_second $c_border $c_border
 
 # application specific styles for windows
 for_window [class="Spotify"] border pixel 0
