@@ -18,6 +18,7 @@ set $c_third    #333333
 set $c_fourth   #2f343a
 set $c_fifth    #4c7899
 set $c_sixth    #888888
+set $c_border   #000000
 
 
 # start a terminal
@@ -200,14 +201,18 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 new_window pixel 1
 
 # class                 border    backgr.   text      indicatr  child_border
-client.focused          $c_fifth  $c_first  $c_second $c_second $c_second
-client.focused_inactive $c_third  $c_first  $c_second $c_first  $c_second
-client.unfocused        $c_third  $c_first  $c_sixth  $c_first  $c_second
-client.urgent           $c_fourth $c_first  $c_second $c_first  $c_second
-client.placeholder      $c_fourth $c_first  $c_second $c_first  $c_second
+client.focused          $c_fifth  $c_first  $c_second $c_border $c_border
+client.focused_inactive $c_third  $c_first  $c_second $c_first  $c_border
+client.unfocused        $c_third  $c_first  $c_sixth  $c_first  $c_border
+client.urgent           $c_fourth $c_first  $c_second $c_first  $c_border
+client.placeholder      $c_fourth $c_first  $c_second $c_first  $c_border
 
 # application specific styles for windows
 for_window [class="Spotify"] border pixel 0
+for_window [class="^.*"] border pixel 0
+for_window [class="Gnome-terminal"] border pixel 10
+for_window [title="TrueCrypt|Google Keep"] floating enable
+for_window [window_role="pop-up"] floating enable,move absolute center
 
 
 
@@ -241,7 +246,7 @@ bar {
         colors {
                 background $c_first_a
                 statusline $c_second_a
-                separator  $c_first_a
+                separator  #bbbbbb
 
                 focused_workspace  $c_first_a  $c_second_a $c_first_a
                 inactive_workspace $c_first_a  $c_first_a  $c_second_a
@@ -256,7 +261,7 @@ bar {
         font pango:San Francisco Display Medium 11
 
         # use a custom separator symbol
-        separator_symbol ":|:"
+        separator_symbol " | "
 
         # choose if you want workspace buttons
         workspace_buttons yes
@@ -302,16 +307,12 @@ bindsym $mod+r mode "Resize"
 # i3-gaps specific configuration
 ################################################################################
 
-# disable the titlebars
-for_window [class="^.*"] border pixel 0
-
 # set the gaps
-gaps inner 6
+gaps inner 10
 gaps outer 0
 
 # make it smart
 smart_gaps on
-smart_borders on
 
 
 
