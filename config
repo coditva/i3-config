@@ -22,7 +22,7 @@ set $c_border   #000000
 
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # start dmenu-desktop
 #bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
@@ -33,12 +33,28 @@ bindsym $mod+Return exec i3-sensible-terminal
         #-fn 'SanFranciscoText Bold-10'"\
     #--term="i3-sensible-terminal"\
     #--usage-log=$HOME"/.dmenu_usage.log"
-bindsym Ctrl+space exec --no-startup-id synapse
+
+# rofi to launch
+bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
+    --dmenu="rofi -i -p 'App' -show run -dmenu \
+        -lines 5 \
+        -show run \
+        -no-lazy-grab \
+        -matching fuzzy \
+        -padding 10 \
+        -scroll-method 1" \
+    --term="i3-sensible-terminal"\
+    --usage-log=$HOME"/.dmenu_usage.log"
 
 # start tilda
 exec_always --no-startup-id tilda
-exec_always --no-startup-id synapse -s hide
 
+# Screenshot
+set $screenshot --no-startup-id gnome-screenshot
+set $screenshot-media --no-startup-id gnome-screenshot -i
+
+bindsym Print exec $screenshot
+bindsym Shift+Print exec $screenshot-media
 
 
 ################################################################################
@@ -314,7 +330,7 @@ gaps inner 10
 gaps outer 0
 
 # make it smart
-smart_gaps on
+#smart_gaps on
 
 
 
