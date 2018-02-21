@@ -153,6 +153,10 @@ bindsym $mod+Shift+0 move container to workspace $w10
 bindsym $mod+Tab        workspace next
 bindsym $mod+Shift+Tab  workspace prev
 
+# assign workspaces
+for_window [class="Google-chrome"]      move container to workspace $w1
+for_window [class="(Evince|okular)"]    move container to workspace $w5
+for_window [class="Spotify"]            move container to workspace $w9
 
 
 ################################################################################
