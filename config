@@ -7,6 +7,9 @@ set $mod4 Ctrl+Mod1
 set $config_dir ~/.config/i3
 set $volscript  ~/.config/i3/scripts/volume.sh
 
+# set favourite terminal
+set $terminal kitty
+
 # set the status bar
 set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
 
@@ -23,7 +26,7 @@ set $c_border   #000000
 
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec $terminal
 
 # start dmenu-desktop
 #bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
@@ -236,6 +239,7 @@ client.placeholder      $c_fourth $c_first  $c_second $c_border $c_border
 for_window [class="Spotify"] border pixel 0
 for_window [class="^.*"] border pixel 0
 for_window [class="Gnome-terminal"] border pixel 10
+for_window [class="kitty"] border pixel 10
 for_window [title="TrueCrypt|Google Keep"] floating enable
 for_window [window_role="pop-up"] floating enable,move absolute center
 
