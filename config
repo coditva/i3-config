@@ -50,9 +50,6 @@ bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
     --term="i3-sensible-terminal"\
     --usage-log=$HOME"/.dmenu_usage.log"
 
-# start tilda
-exec_always --no-startup-id tilda
-
 # Screenshot
 set $screenshot --no-startup-id gnome-screenshot
 set $screenshot-media --no-startup-id gnome-screenshot -i
