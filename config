@@ -35,7 +35,7 @@ bindsym $mod+Return exec $terminal
         #-nf '"$c_second"'\
         #-sb '"$c_third"'\
         #-fn 'SanFranciscoText Bold-10'"\
-    #--term="i3-sensible-terminal"\
+    #--term="kitty"\
     #--usage-log=$HOME"/.dmenu_usage.log"
 
 # rofi to launch
@@ -47,7 +47,7 @@ bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
         -matching fuzzy \
         -padding 10 \
         -scroll-method 1" \
-    --term="i3-sensible-terminal"\
+    --term="kitty"\
     --usage-log=$HOME"/.dmenu_usage.log"
 
 # Screenshot
@@ -297,6 +297,8 @@ bar {
 
         # dont show the numbers of the workspaces
         strip_workspace_numbers yes
+
+        mode hide
 }
 
 
