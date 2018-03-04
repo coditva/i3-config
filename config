@@ -191,7 +191,8 @@ floating_modifier $mod
 ################################################################################
 
 # locker
-set $locker "/usr/bin/sxlock -u 'Utkarsh Maheshwari'"
+#set $locker "/usr/bin/sxlock -u 'Utkarsh Maheshwari'"
+set $locker "/usr/bin/physlock -mp 'Locked, obviously.'"
 
 # lock screen with $mod4+l
 bindsym $mod4+l exec --no-startup-id $locker
