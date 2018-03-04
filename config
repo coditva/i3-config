@@ -204,18 +204,20 @@ bindsym $mod4+l exec --no-startup-id $locker
 ################################################################################
 
 # sound controls
-bindsym XF86AudioRaiseVolume    exec --no-startup-id $volscript + 5
-bindsym XF86AudioLowerVolume    exec --no-startup-id $volscript - 5
-bindsym XF86AudioMute           exec --no-startup-id $volscript toggle
+bindsym XF86AudioRaiseVolume        exec --no-startup-id $volscript + 5
+bindsym XF86AudioLowerVolume        exec --no-startup-id $volscript - 5
+bindsym Shift+XF86AudioRaiseVolume  exec --no-startup-id $volscript + 10
+bindsym Shift+XF86AudioLowerVolume  exec --no-startup-id $volscript - 10
+bindsym XF86AudioMute               exec --no-startup-id $volscript toggle
 
 # screen brightness controls
-bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 3
-bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 3
+bindsym XF86MonBrightnessUp         exec --no-startup-id xbacklight -inc 3
+bindsym XF86MonBrightnessDown       exec --no-startup-id xbacklight -dec 3
 
 # playback controls
-bindsym XF86AudioPlay           exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext           exec --no-startup-id playerctl next
-bindsym XF86AudioPrev           exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay               exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext               exec --no-startup-id playerctl next
+bindsym XF86AudioPrev               exec --no-startup-id playerctl previous
 
 
 
