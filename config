@@ -1,4 +1,3 @@
-
 # set the mod key
 set $mod Mod4
 set $mod4 Ctrl+Mod1
@@ -24,38 +23,18 @@ set $c_fifth    #4c7899
 set $c_sixth    #888888
 set $c_border   #000000
 
-
 # start a terminal
 bindsym $mod+Return exec $terminal
 
-# start dmenu-desktop
-#bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
-    #--dmenu="dmenu -i -p 'App:' -f\
-        #-nb '"$c_first"'\
-        #-nf '"$c_second"'\
-        #-sb '"$c_third"'\
-        #-fn 'SanFranciscoText Bold-10'"\
-    #--term="kitty"\
-    #--usage-log=$HOME"/.dmenu_usage.log"
+# albert
+exec_always --no-startup-id albert
 
-# rofi to launch
-bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
-    --dmenu="rofi -i -p 'App' -show run -dmenu \
-        -lines 5 \
-        -show run \
-        -no-lazy-grab \
-        -matching fuzzy \
-        -padding 10 \
-        -scroll-method 1" \
-    --term="kitty"\
-    --usage-log=$HOME"/.dmenu_usage.log"
-
-# Screenshot
-set $screenshot --no-startup-id gnome-screenshot
+# screenshot
+set $screenshot       --no-startup-id gnome-screenshot
 set $screenshot-media --no-startup-id gnome-screenshot -i
+bindsym Print         exec $screenshot
+bindsym Shift+Print   exec $screenshot-media
 
-bindsym Print exec $screenshot
-bindsym Shift+Print exec $screenshot-media
 
 
 ################################################################################
@@ -159,6 +138,7 @@ for_window [class="(Evince|okular)"]    move container to workspace $w5
 for_window [class="Spotify"]            move container to workspace $w9
 
 
+
 ################################################################################
 # Configure i3 specific key bindings
 ################################################################################
@@ -236,11 +216,9 @@ client.urgent           $c_fourth $c_first  $c_second $c_border $c_border
 client.placeholder      $c_fourth $c_first  $c_second $c_border $c_border
 
 # application specific styles for windows
-for_window [class="Spotify"] border pixel 0, fullscreen
-for_window [class="^.*"] border pixel 0
-for_window [class="Gnome-terminal"] border pixel 10
-for_window [class="kitty"] border pixel 10
-for_window [title="TrueCrypt|Google Keep"] floating enable
+for_window [class="^.*"]                    border pixel 0
+for_window [title="TrueCrypt|Google Keep"]  floating enable
+for_window [title="pynvim"]                 floating enable
 
 
 
@@ -255,52 +233,52 @@ bindsym $mod+m bar mode toggle
 # finds out, if available)
 bar {
 
-        # load the status bar config
-        status_command $status_cmd
+    # load the status bar config
+    status_command $status_cmd
 
-        # make the status bar support transparency
-        # (only in i3-gaps)
-        i3bar_command i3bar -t
+    # make the status bar support transparency (only in i3-gaps)
+    i3bar_command i3bar -t
 
-        # define dock behavior in hidden state
-        hidden_state hide
-        modifier $mod
+    # define bar behavior in hidden state
+    hidden_state hide
+    modifier $mod
 
-        # place the bar on the top
-        position top
+    # place the bar on the top
+    position top
 
-        # choose colors for the bar
-        # RGBA in i3-gaps
-        colors {
-                background $c_first_a
-                statusline $c_second_a
-                separator  #bbbbbb
+    # keep it hidden by default
+    mode hide
 
-                focused_workspace  $c_first_a  $c_second_a $c_first_a
-                inactive_workspace $c_first_a  $c_first_a  $c_second_a
-                urgent_workspace   $c_first_a  $c_third    $c_first_a
-                binding_mode       $c_first_a  $c_second_a $c_first_a
-        }
+    # choose colors for the bar
+    # RGBA in i3-gaps
+    colors {
+        background $c_first_a
+        statusline $c_second_a
+        separator  #bbbbbb
 
-        # add a system tray to the primary monitor
-        tray_output primary
+        focused_workspace  $c_first_a  $c_second_a $c_first_a
+        inactive_workspace $c_first_a  $c_first_a  $c_second_a
+        urgent_workspace   $c_first_a  $c_third    $c_first_a
+        binding_mode       $c_first_a  $c_second_a $c_first_a
+    }
 
-        # use a different font for the bar
-        font pango:San Francisco Display Medium 11
+    # add a system tray to the primary monitor
+    tray_output primary
 
-        # use a custom separator symbol
-        separator_symbol " | "
+    # use a different font for the bar
+    font pango:San Francisco Display Medium 11
 
-        # choose if you want workspace buttons
-        workspace_buttons yes
+    # use a custom separator symbol
+    separator_symbol " | "
 
-        # show the binding mode indicator
-        binding_mode_indicator yes
+    # choose if you want workspace buttons
+    workspace_buttons yes
 
-        # dont show the numbers of the workspaces
-        strip_workspace_numbers yes
+    # show the binding mode indicator
+    binding_mode_indicator yes
 
-        mode hide
+    # dont show the numbers of the workspaces
+    strip_workspace_numbers yes
 }
 
 
@@ -310,32 +288,29 @@ bar {
 ################################################################################
 
 # stop navigation keys
+bindsym $mod+Shift+Delete mode "No mappings"
 mode "No mappings" {
     bindsym Escape mode "default"
 }
 
 # resize window (you can also use the mouse for that)
-mode "Resize" {
-        set $resize_step 2
-        set $resize_step_large 7
-
-        bindsym h resize shrink width  $resize_step px or $resize_step ppt
-        bindsym j resize grow   height $resize_step px or $resize_step ppt
-        bindsym k resize shrink height $resize_step px or $resize_step ppt
-        bindsym l resize grow   width  $resize_step px or $resize_step ppt
-
-        bindsym Shift+h resize shrink width  $resize_step_large px or $resize_step ppt
-        bindsym Shift+j resize grow   height $resize_step_large px or $resize_step ppt
-        bindsym Shift+k resize shrink height $resize_step_large px or $resize_step ppt
-        bindsym Shift+l resize grow   width  $resize_step_large px or $resize_step ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+Shift+Delete mode "No mappings"
 bindsym $mod+r mode "Resize"
+mode "Resize" {
+    set $resize_step 2
+    set $resize_step_large 7
+
+    bindsym h resize shrink width  $resize_step px
+    bindsym j resize grow   height $resize_step px
+    bindsym k resize shrink height $resize_step px
+    bindsym l resize grow   width  $resize_step px
+
+    bindsym Shift+h resize shrink width  $resize_step_large px
+    bindsym Shift+j resize grow   height $resize_step_large px
+    bindsym Shift+k resize shrink height $resize_step_large px
+    bindsym Shift+l resize grow   width  $resize_step_large px
+
+    bindsym Escape mode "default"
+}
 
 
 
@@ -344,11 +319,11 @@ bindsym $mod+r mode "Resize"
 ################################################################################
 
 # set the gaps
-gaps inner 10
+gaps inner 5
 gaps outer 0
 
 # make it smart
-#smart_gaps on
+smart_gaps on
 
 
 
