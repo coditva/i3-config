@@ -245,10 +245,10 @@ bar {
     modifier $mod
 
     # place the bar on the top
-    position top
+    position bottom
 
     # keep it hidden by default
-    mode dock
+    mode hide
 
     # choose colors for the bar
     # RGBA in i3-gaps
