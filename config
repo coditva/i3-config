@@ -7,21 +7,22 @@ set $config_dir ~/.config/i3
 set $volscript  ~/.config/i3/scripts/volume.sh
 
 # set favourite terminal
-set $terminal i3-sensible-terminal
+#set $terminal i3-sensible-terminal
+set $terminal kitty
 
 # set the status bar
 set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
 
 # set color scheme for theme
-set $c_first    #ffffff
-set $c_first_a  #ffffffdd
-set $c_second   #444444
-set $c_second_a #444444ff
-set $c_third    #333333
-set $c_fourth   #2f343a
-set $c_fifth    #4c7899
-set $c_sixth    #888888
-set $c_border   #000000
+set $c_first    #111111dd
+set $c_second   #efefefdd
+set $c_third    #232323dd
+set $c_third_l  #3a3a3add
+set $c_fourth   #c91808dd
+set $c_fourth_l #e52312dd
+set $c_fifth    #0ba4c6dd
+set $c_fifth_l  #0fb4d8dd
+set $c_border   #111111dd
 
 # start a terminal
 bindsym $mod+Return exec $terminal
@@ -84,7 +85,7 @@ bindsym $mod+Shift+q kill
 popup_during_fullscreen smart
 
 # set the font used by the windows
-font pango:San Francisco Display Medium 11
+font pango:San Francisco Display Medium 0
 
 
 
@@ -209,11 +210,11 @@ bindsym XF86AudioPrev               exec --no-startup-id playerctl previous
 new_window pixel 1
 
 # class                 border    backgr.   text      indicatr  child_border
-client.focused          $c_fifth  $c_first  $c_second $c_border $c_border
-client.focused_inactive $c_third  $c_first  $c_second $c_border $c_border
-client.unfocused        $c_third  $c_first  $c_sixth  $c_border $c_border
-client.urgent           $c_fourth $c_first  $c_second $c_border $c_border
-client.placeholder      $c_fourth $c_first  $c_second $c_border $c_border
+client.focused          $c_fifth  $c_fifth  $c_second $c_border $c_border
+client.focused_inactive $c_fifth  $c_fifth  $c_second $c_border $c_border
+client.unfocused        $c_third  $c_third  $c_second $c_border $c_border
+client.urgent           $c_fourth $c_fourth $c_second $c_border $c_border
+client.placeholder      $c_fourth $c_fourth $c_second $c_border $c_border
 
 # application specific styles for windows
 for_window [class="^.*"]                    border pixel 0
@@ -247,19 +248,20 @@ bar {
     position top
 
     # keep it hidden by default
-    mode hide
+    mode dock
 
     # choose colors for the bar
     # RGBA in i3-gaps
     colors {
-        background $c_first_a
-        statusline $c_second_a
-        separator  #bbbbbb
+        background $c_first
+        statusline $c_second
+        separator  $c_first
 
-        focused_workspace  $c_first_a  $c_second_a $c_first_a
-        inactive_workspace $c_first_a  $c_first_a  $c_second_a
-        urgent_workspace   $c_first_a  $c_third    $c_first_a
-        binding_mode       $c_first_a  $c_second_a $c_first_a
+        # class             # border    # backg   # text
+        focused_workspace   $c_fifth_l  $c_fifth  $c_first
+        inactive_workspace  $c_third_l  $c_third  $c_second
+        urgent_workspace    $c_fourth_l $c_fourth $c_first
+        binding_mode        $c_third_l  $c_third  $c_second
     }
 
     # add a system tray to the primary monitor
@@ -323,7 +325,7 @@ gaps inner 5
 gaps outer 0
 
 # make it smart
-smart_gaps on
+#smart_gaps off
 
 
 
