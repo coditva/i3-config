@@ -248,7 +248,7 @@ bar {
     position bottom
 
     # keep it hidden by default
-    mode hide
+    mode dock
 
     # choose colors for the bar
     # RGBA in i3-gaps
@@ -325,7 +325,7 @@ gaps inner 5
 gaps outer 0
 
 # make it smart
-#smart_gaps off
+smart_gaps on
 
 
 
