@@ -7,7 +7,7 @@ set $config_dir ~/.config/i3
 set $volscript  ~/.config/i3/scripts/volume.sh
 
 # set favourite terminal
-set $terminal kitty
+set $terminal i3-sensible-terminal
 
 # set the status bar
 set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
