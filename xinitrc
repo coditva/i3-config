@@ -44,7 +44,7 @@ fi
 
 # enable window compositing
 if [ -f /usr/bin/compton ]; then
-    compton --config "$HOME/.config/i3/compton.conf" --daemon
+    compton --fading --daemon --config "$HOME/.config/i3/compton.conf"
 fi
 
 # enable touchpad basics
@@ -58,6 +58,13 @@ fi
 # start redshift
 if [ -f /usr/bin/redshift ]; then
     redshift &
+fi
+
+# start Gnome keyring
+if [ -f /usr/bin/gnome-keyring-daemon ]; then
+  dbus-update-activation-environment --systemd DISPLAY
+  eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+  export SSH_AUTH_SOCK
 fi
 
 # start i3 and keep it running
