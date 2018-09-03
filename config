@@ -10,8 +10,9 @@ set $volscript  ~/.config/i3/scripts/volume.sh
 #set $terminal i3-sensible-terminal
 set $terminal kitty
 
-# set the status bar
+# set commands
 set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
+set $tilda_cmd  "ps -e | grep tilda || tilda"
 
 # set color scheme for theme
 set $c_first    #111111dd
@@ -29,6 +30,9 @@ bindsym $mod+Return exec $terminal
 
 # albert
 exec_always --no-startup-id albert
+
+# start tilda
+exec_always --no-startup-id $tilda_cmd
 
 # screenshot
 set $screenshot       --no-startup-id gnome-screenshot
