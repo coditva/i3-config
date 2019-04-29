@@ -106,6 +106,7 @@ format-prefix-background    = ${colors.spotify}
 [module/xwindow]
 type            = internal/xwindow
 label           = %title%
+label-maxlen    = 75
 label-padding   = 2
 
 
