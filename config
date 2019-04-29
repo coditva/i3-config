@@ -79,7 +79,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # default layout strategy
-workspace_layout tabbed
+workspace_layout default
 
 
 # toggle tiling / floating
@@ -230,7 +230,7 @@ client.urgent           $c_fourth $c_fourth $c_second $c_border $c_border
 client.placeholder      $c_fourth $c_fourth $c_second $c_border $c_border
 
 # application specific styles for windows
-for_window [class="^.*"]                    border pixel 0
+for_window [class=".*"]                     border pixel 0
 for_window [title="TrueCrypt|Google Keep"]  floating enable
 for_window [title="pynvim"]                 floating enable
 
@@ -277,6 +277,7 @@ gaps outer 0
 
 # make it smart
 smart_gaps on
+smart_borders no_gaps
 
 
 
