@@ -8,7 +8,7 @@ set $volscript  ~/.config/i3/scripts/volume.sh
 
 # set favourite terminal
 #set $terminal i3-sensible-terminal
-set $terminal kitty
+set $terminal gnome-terminal
 
 # set commands
 set $status_cmd "i3status --config ~/.config/i3/i3status.conf"
@@ -28,8 +28,14 @@ set $c_border   #111111dd
 # start a terminal
 bindsym $mod+Return exec $terminal
 
-# albert
-exec_always --no-startup-id albert
+# start dmenu-desktop
+bindsym Ctrl+space exec --no-startup-id j4-dmenu-desktop\
+    --dmenu="dmenu -i -p 'App:' -f \
+        -nb '#111111' \
+        -nf '#efefef' \
+        -sb '#232323' \
+        -fn 'SanFranciscoText Bold-10'"\
+    --usage-log=$HOME"/.dmenu_usage.log"
 
 # start tilda
 exec_always --no-startup-id $tilda_cmd
@@ -180,8 +186,7 @@ floating_modifier $mod
 ################################################################################
 
 # locker
-set $locker "/usr/bin/sxlock -u 'Locked, obviously.'"
-#set $locker "/usr/bin/physlock -mp 'Locked, obviously.'"
+set $locker "/usr/bin/physlock -mp 'Locked, obviously.'"
 
 # lock screen with $mod4+l
 bindsym $mod4+l exec --no-startup-id $locker
